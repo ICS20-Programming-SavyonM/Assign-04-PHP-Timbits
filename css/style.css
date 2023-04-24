@@ -1,0 +1,47 @@
+/* Created by: Savyon
+* Created on: Mar 2023
+* This CSS file defines the style for index.html
+* ICS2O-Unit2-01-HTML-JS-HelloWorld
+*/
+
+body {
+	background-color: rgb(131, 22, 22);
+}
+
+h1 {
+	background-color: rgb(255, 255, 255);
+	color: hsl(0, 0%, 0%);
+	padding: 40px;
+	text-align: center;
+}
+
+p {
+	background-color: #ffffff;
+}
+
+div {
+	
+  font-weight: bold;
+  color: #050505;
+  margin: 5px;
+}
+
+#display-results{
+  background-color: #fce91d;
+}
+
+label {
+  background-color: white;
+}
+
+table {
+  background-color: white;
+}
+
+ul {
+  background-color: white;
+}
+
+h2 {
+  background-color: white 
+}
