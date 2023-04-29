@@ -32,18 +32,18 @@
 
         <label for="toppings">Choose your toppings:</label>
         <select id="toppings" name="toppings[]" multiple>
-            <option value="0.02">Chocolate - $0.02 per Timbit</option>
-            <option value="0.01">Sprinkles - $0.01 per Timbit</option>
-            <option value="0.02">Strawberry Jam - $0.02 per Timbit</option>
-            <option value="0.01">Caramel Sauce - $0.01 per Timbit</option>
+            <option value="0.02">Chocolate - $0.02</option>
+            <option value="0.02">Sprinkles - $0.02</option>
+            <option value="0.02">Strawberry Jam - $0.02</option>
+            <option value="0.02">Caramel Sauce - $0.02</option>
         </select><br><br>
 
         <label for="secondToppings">Extra topping:</label>
         <select id="secondToppings" name="secondToppings[]" multiple>
-            <option value="0.02">Chocolate - $0.02 per Timbit</option>
-            <option value="0.01">Sprinkles - $0.01 per Timbit</option>
-            <option value="0.02">Strawberry Jam - $0.02 per Timbit</option>
-            <option value="0.01">Caramel Sauce - $0.01 per Timbit</option>
+            <option value="0.02">Chocolate - $0.02</option>
+            <option value="0.02">Sprinkles - $0.02</option>
+            <option value="0.02">Strawberry Jam - $0.02</option>
+            <option value="0.02">Caramel Sauce - $0.02</option>
         </select><br><br>
 
         <label for="coffee">Choose your coffee size:</label>
@@ -87,8 +87,8 @@
                 case '0.02':
                     $topping_cost += 0.02;
                     break;
-                case '0.01':
-                    $topping_cost += 0.01;
+                case '0.02':
+                    $topping_cost += 0.02;
                     break;
                 default:
                     break;
@@ -100,8 +100,8 @@
                 case '0.02':
                     $secondTopping_cost += 0.02;
                     break;
-                case '0.01':
-                    $secondTopping_cost += 0.01;
+                case '0.02':
+                    $secondTopping_cost += 0.02;
                     break;
                 default:
                     break;
@@ -122,8 +122,10 @@
                 break;
         }
 
-       $subtotal = round($pack_cost + ($topping_cost * count($toppings)) + ($secondTopping_cost * count($secondToppings)) + $coffee_cost, 2);
+     $subtotal = round(($pack_cost * 1) + ($topping_cost * count($toppings)) + ($secondTopping_cost * count($secondToppings)) + ($coffee_cost * 1), 2);
 $total = round($subtotal * 1.13, 2);
+
+
 
         ?>
 
@@ -132,10 +134,10 @@ $total = round($subtotal * 1.13, 2);
             <li>Pack of Timbits for $<?php echo $pack_cost; ?></li>
             <?php
             if (!empty($toppings)) {
-                echo "<li>Toppings: " . implode(", ", $toppings) . ", at $" . $topping_cost . " per Timbit</li>";
+                echo "<li>Toppings: " . implode(", ", $toppings) . ", at $" . $topping_cost . "</li>";
             }
             if (!empty($secondToppings)) {
-                echo "<li>Extra Topping: " . implode(", ", $secondToppings) . ", at $" . $secondTopping_cost . " per Timbit</li>";
+                echo "<li>Extra Topping: " . implode(", ", $secondToppings) . ", at $" . $secondTopping_cost . "</li>";
             }
             ?>
             <li>Coffee: $<?php echo $coffee_cost; ?>, at $<?php echo $coffee_cost; ?> per cup</li>
@@ -146,9 +148,8 @@ $total = round($subtotal * 1.13, 2);
         <?php
     }
 
-    // GIF on this page
-    echo '<img src="./images/timbits.gif" alt="timbits" height="200" width="200">';
+// GIF on this page
+echo '<img src="./images/timbits.gif" alt="timbits" height="200" width="200">';
 
-    // Image on this page
-    echo '<img src="./images/coffee.webp" alt="coffee" height="200" width="200">';
-    ?>
+// Image on this page
+echo '<img src="./images/coffee.webp" alt="coffee" height="200" width="200">';
