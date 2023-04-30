@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="description" content="User Input, with JavaScript">
@@ -8,20 +9,22 @@
     <meta name="author" content="Savyon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Favicon -->
+    <!-- Favicon on this tab -->
     <link rel="apple-touch-icon" sizes="180x180" href="./fav_index/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./fav_index/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./fav_index/favicon-16x16.png">
     <link rel="manifest" href="./fav_index/site.webmanifest">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- Style -->
+    <!-- Style for this page -->
     <link rel="stylesheet" href="./css/style.css">
 
     <title>Tim Hortons</title>
 </head>
 <body>
     <h1>Timbits and Coffee</h1>
+  
+  <!--area for user to enter order-->
     <form method="post" action="">
         <label for="timbits">Choose your pack of Timbits:</label>
         <select id="timbits" name="timbits">
@@ -58,6 +61,7 @@
  </form>
 
     <?php
+  //get form inputs from user
     if (isset($_POST['submit'])) {
         $pack = $_POST['timbits'];
         $toppings = isset($_POST['toppings']) ? $_POST['toppings'] : array();
@@ -67,7 +71,8 @@
         $pack_cost = 0;
         $topping_cost = 0;
         $secondTopping_cost = 0;
-
+      
+ // Determine the cost of the selected pack of Timbits
         switch ($pack) {
             case '3.19':
                 $pack_cost = 3.19;
@@ -81,7 +86,8 @@
             default:
                 break;
         }
-
+      
+// Calculate the cost of selected toppings
         foreach ($toppings as $topping) {
             switch ($topping) {
                 case '0.02':
@@ -94,7 +100,8 @@
                     break;
             }
         }
-
+      
+// Calculate the cost of selected second toppings
         foreach ($secondToppings as $secondTopping) {
             switch ($secondTopping) {
                 case '0.02':
@@ -107,7 +114,8 @@
                     break;
             }
         }
-
+      
+ // Determine the cost of the selected coffee size
         switch ($coffee) {
             case '1.59':
                 $coffee_cost = 1.59;
@@ -121,14 +129,10 @@
             default:
                 break;
         }
-
+// Calculate the subtotal and total of the order
      $subtotal = round(($pack_cost * 1) + ($topping_cost * count($toppings)) + ($secondTopping_cost * count($secondToppings)) + ($coffee_cost * 1), 2);
 $total = round($subtotal * 1.13, 2);
-
-
-
-        ?>
-
+ ?>
         <h2>Your Order Summary</h2>
         <ul>
             <li>Pack of Timbits for $<?php echo $pack_cost; ?></li>
