@@ -54,6 +54,7 @@
             <option value="1.59">Small - $1.59</option>
             <option value="1.79">Medium - $1.79</option>
             <option value="1.99">Large - $1.99</option>
+            <option value="0">No coffee</option>
         </select><br><br>
 
         <input type="submit" name="submit" value="Submit Order">
@@ -120,6 +121,9 @@ if (isset($_POST['submit'])) {
         case '1.99':
             $coffee_cost = 1.99;
             break;
+       case '0':
+            $coffee_cost = 0;
+            break;
         default:
             break;
     }
@@ -136,7 +140,7 @@ if (isset($_POST['submit'])) {
             echo "<li>Toppings: $" . implode(", ", $toppings) . ", at $" . $topping_cost . "</li>";
         }
         if (!empty($secondToppings)) {
-            echo "<li>Extra Topping: " . implode(", ", $secondToppings) . ", at $" . $secondTopping_cost . "</li>";
+            echo "<li>Extra Topping: $" . implode(", ", $secondToppings) . ", at $" . $secondTopping_cost . "</li>";
         }
         ?>
         <li>Coffee: $<?php echo $coffee_cost; ?>, at $<?php echo $coffee_cost; ?> per cup</li>
